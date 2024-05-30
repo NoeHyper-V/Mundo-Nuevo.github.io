@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Register | Mundo Nuevo</title>
+<link rel="icon" href="../Imagenes/iconos.ico" type="image/x-icon">
+<!-- estilos -->
+<link rel="stylesheet" href="../Estilos/style_register.css">
+<!-- Framework -->
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<!-- libreria de alerta de sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+              body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            position: relative;
+        }
+
+         .image-container {
+            margin-left: 20px;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*ANIMACION DE LA IMAGEN */
+        @-webkit-keyframes floating_personage {
+    0% {
+        transform: translate(0)
+    }
+
+    50% {
+        transform: translateY(65px)
+    }
+
+    to {
+        transform: translate(0)
+    }
+}
+
+@keyframes floating_personage {
+    0% {
+        transform: translate(0)
+    }
+
+    50% {
+        transform: translateY(60px)
+    }
+
+    to {
+        transform: translate(0)
+    }
+}
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            width: 100%;
+            -webkit-animation: floating_personage 3s ease-in-out infinite; 
+         animation: floating_personage 3s ease-in-out infinite;
+        }
+
+        .regiter-menu {
+          position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            margin: auto;
+        }
+        canvas {
+          width: 100vw; 
+    height: 100vh;
+    background: black;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0
+        }
+        a{
+          text-decoration: none;
+          color: rgb(255, 0, 128);
+          font-size: 16px;
+        }
+        a:hover{
+          color: rgb(212, 0, 255);
+        }
+
+        /*ANIMACION DE JQUERY FADE-IN-LEFT Y RIGHT*/
+
+        
+.fade-in-left-element {
+    transform: translateX(-50px); 
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.fade-in-left-element.fade-in-left {
+    transform: translateX(0);
+    opacity: 1; 
+}
+
+
+.fade-in-right-element {
+    transform: translateX(200px); 
+    opacity: 0; 
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.fade-in-right-element.fade-in-right {
+    transform: translateX(0); 
+    opacity: 1; 
+}
+@media screen and (max-width: 1040px) and (max-height: 554px) {
+            .image-container {
+                display: none;
+            }
+        }
+</style>
+</head>
+<body>
+  <script src="../JavaScript/particulas.js"></script>
+  <canvas id="canvas"></canvas>
+  <script src="../JavaScript/particulasC.js"></script>
+
+<main class="regiter-menu fade-in-left-element">
+<section class="form-section">
+<div class="container">
+<div class="container-form">
+<div class="title-form-dialogue">
+<div class="container-title-dialogue">
+<p class="title-big title-big-form"><span class="title-color">
+    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¡Sé parte</font>
+</font></span><font style="vertical-align: inherit;">
+    <font style="vertical-align: inherit;"> de Mundo Nuevo</font></font></p>
+<p class="title-small"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+Para continuar, debes registrarte o 
+<a href="../index.html">Volver al inicio.</a>
+</font></font></p>
+</div>
+</div>
+<div class="form-container-action">
+<form id="formulario">
+<input type="hidden">
+<div class="input-container">
+<input class="input-login-register" placeholder="Nombre" id="name" type="text" name="name" value="" autocomplete="name"  autofocus="">
+</div>
+<div class="input-container">
+<input class="input-login-register" placeholder="Correo electrónico" id="email" type="text" name="email" value="" autocomplete="email" >
+</div>
+<div class="input-container">
+<label for="password" class=""></label>
+<input class="input-login-register" placeholder="Contraseña" id="password" type="password" name="password" autocomplete="new-password" >
+</div>
+<div class="input-container">
+<input class="input-login-register" placeholder="Confirmación de contraseña" id="password-confirm" type="password" name="password_confirmation" autocomplete="new-password" >
+</div>
+<div class="container-button-form">
+<button id="login" class="button-primary" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+Inicia sesión
+</font>
+</font></button>
+<button class="button-primary" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    Registrar
+    </font>
+    </font></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<section class="image-container fade-in-right-element">
+  <img src="../Imagenes/img_inicio/spiderman.png" alt="Side Image">
+</section>
+</main>
+<script>
+    /* USO DE JQUERY PARA VOLVER, EVENTO CLICK*/
+      $(document).ready(function() {
+    $('#login').click(function() {
+      window.location.href = 'login.html';
+    });
+  });
+
+/* alerta de registo de libreria swet alert*/
+document.getElementById("formulario").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const username = document.querySelector('#name').value;
+    const passwords = document.querySelector('#password').value;
+    const passwordconfir = document.querySelector('#password-confirm').value;
+    const email = document.querySelector('#email').value;
+    const checkBox = document.querySelector('#check');
+    if (!username || !passwords || !passwordconfir || !email) {
+        const Toast = Swal.mixin({
+              toast: true,
+              position: 'bottom-end',
+              showConfirmButton: false,
+              timer: 3000
+            });
+            Toast.fire({
+              icon: "error",
+              type: 'success',
+              title: "❌<span style='color: red;font-size: 16px;'>Completa los campos vacios...</span>❌",
+              background: "#141a25",
+            
+            });
+    }
+
+     else  if(!username == "" && !passwords == "" && !passwordconfir == "" && !email == ""){
+      const Toast = Swal.mixin({
+              toast: true,
+              position: 'bottom-end',
+              showConfirmButton: false,
+              timer: 3000
+            });
+            Toast.fire({
+              icon: "success",
+              type: 'success',
+              title: "✔️<span style='color: lime; font-size: 16px;'>Resgistrado exitosamente...</span>✔️",
+              background: "#141a25",
+            });
+     }
+
+     
+    })
+
+/*ANIMACION DE JQUERY FADE-IN-LEFT Y RIGHT*/
+$(document).ready(function() {
+    setTimeout(function() {
+        $('.fade-in-left-element').addClass('fade-in-left');
+        $('.fade-in-right-element').addClass('fade-in-right');
+    }, 200);
+});
+
+
+</script>
+</body>
+</html>

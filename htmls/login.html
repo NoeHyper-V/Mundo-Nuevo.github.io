@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es" class="translated-ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Login | Mundo nuevo</title>
+    <link rel="icon" href="../Imagenes/iconos.ico" type="image/x-icon">
+    <!-- estilos -->
+    <link rel="stylesheet" href="../Estilos/style_login.css">
+    <!-- Framework -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- libreria de sweet alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            position: relative;
+        }
+        canvas {
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+        }
+        .menu-login {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            margin: auto;
+        }
+        .image-container {
+            margin-left: 20px;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+    /*ANIMACION DE LA IMAGEN*/
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            width: 100%;
+            -webkit-animation: floating_personage 3s ease-in-out infinite; 
+         animation: floating_personage 3s ease-in-out infinite;
+        }
+        @-webkit-keyframes floating_personage {
+    0% {
+        transform: translate(0)
+    }
+
+    50% {
+        transform: translateY(65px)
+    }
+
+    to {
+        transform: translate(0)
+    }
+}
+
+@keyframes floating_personage {
+    0% {
+        transform: translate(0)
+    }
+
+    50% {
+        transform: translateY(60px)
+    }
+
+    to {
+        transform: translate(0)
+    }
+}
+        #a {
+            text-decoration: none;
+            color: rgb(255, 0, 128);
+            font-size: 16px;
+        }
+        #a:hover {
+            color: rgb(212, 0, 255);
+        }
+        
+        /*ANIMACION DE JQUERY REBOTE*/
+        .bounce-in-element {
+            transform: translateY(-100px);
+            opacity: 0;
+            animation: bounce-in 1s forwards;
+        }
+        @keyframes bounce-in {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(20px);
+                opacity: 1;
+            }
+            70% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+
+        @media screen and (max-width: 1040px) and (max-height: 554px) {
+            .image-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="../JavaScript/particulas.js"></script>
+    <canvas id="canvas"></canvas>
+    <script src="../JavaScript/particulasC.js"></script>
+    <main class="menu-login bounce-in-element">
+        <section class="form-section">
+            <div class="container">
+                <div class="container-form">
+                    <div class="title-form-dialogue">
+                        <div class="container-title-dialogue">
+                            <p class="title-big title-big-form title-random">
+                                <span class="title-color">¡Bienvenido</span> al Mundo Nuevo!
+                            </p>
+                            <p class="title-small">
+                                Para continuar, debes iniciar sesión en tu cuenta o
+                                <span id="s"> <a id="a" href="../index.html">Volver al inicio</a></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-container-action">
+                        <form>
+                            <input type="hidden">
+                            <div class="input-container">
+                                <input id="email" type="text" class="input-login-register" name="email" placeholder="Correo electrónico" value="" autocomplete="email">
+                            </div>
+                            <div class="input-container">
+                                <input id="password" type="password" class="input-login-register" name="password" placeholder="Contraseña" autocomplete="current-password">
+                            </div>
+                            <div class="container-remember">
+                                <label class="switch">
+                                    <input type="checkbox" name="remember" id="remember">
+                                    <span class="slider round"></span>
+                                </label>
+                                <label class="remember-user" for="remember">Mantente conectado</label>
+                            </div>
+                            <div class="container-button-form">
+                                <button onclick="login()" class="button-primary">Entrar</button>
+                                <button id="registers" class="button-primary" type="button">Registrarse</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="image-container bounce-in-element">
+            <img src="../Imagenes/img_inicio/spidermanv1.png" alt="Side Image">
+        </section>
+    </main>
+    <script>
+        /* USO DE JQUERY PARA VOLVER, EVENTO CLICK*/
+        $(document).ready(function() {
+            $('#registers').click(function() {
+                window.location.href = 'register.html';
+            });
+        });
+        /* alerta de sweet alert*/ 
+        function login() {
+            event.preventDefault();
+            const username = document.querySelector('#email').value;
+            const pass = document.querySelector('#password').value;
+            if (!username || !pass) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-end',
+                    showConfirmButton: false,
+                    timer: 3000
+ 
+                });
+                Toast.fire({
+                    icon: "error",
+                    title: "❌<span style='color: red;font-size: 16px;'>Completa los campos vacios...</span>❌",
+                    background: "#141a25",
+                });
+            } else if (username && pass) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "✔️<span style='color: lime;font-size: 16px;'>Inicio de sesión exitoso</span>✔️",
+                    background: "#141a25",
+                });
+            }
+        }
+        /*ANIMACION DE JQUERY*/
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('.bounce-in-element').css('opacity', '1');
+            }, 200);
+        });
+    </script>
+</body>
+</html>

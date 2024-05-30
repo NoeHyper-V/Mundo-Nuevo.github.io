@@ -1,0 +1,174 @@
+@media screen and (max-width: 850px)
+{
+    form .container {
+        display: flex;
+        width: 507px;
+    }
+    form {
+        width: 84%;
+    }
+}
+
+h5{
+    color: #ff00fa;
+}
+
+.container{
+    width: 419px;
+    height: 40%;
+    border: 1px solid  #ff00fa;
+    background-color:transparent;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    justify-content:space-around;
+}
+
+
+h3{
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+.first-row{
+     display: flex;
+}
+.input-field{
+    background: transparent;
+    
+    border-radius: 10px;
+    border-bottom: 2px solid rgb(154, 2, 255);
+    outline: none;
+}
+.input-field:hover{
+
+    border-color: rgb(247, 0, 255);
+
+}
+
+.cvv
+{
+    width: 80px;
+}
+.first-row input{
+    border-radius: 20px;
+    border-color: aqua;
+}
+
+.input-field input{
+    width: 80%;
+    border:none;
+    outline: none;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background: transparent;
+    color: #ffffff;
+    
+}
+.input-field #num{
+    font-size: 20px;
+
+}
+
+
+
+.selection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selection select{
+    padding: 5px 5px;
+}
+
+#confirmar{
+    background-color: rgb(0, 174, 255);
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+    transition: 0.5s;
+    margin-top: 6px;
+    height: 79px;
+    border-radius: 20px;
+    
+    
+
+}
+.status{
+    margin-bottom: 5px;
+   text-align: center;
+}
+#confirmar:hover{
+    background-color: rgb(0, 76, 151);
+}
+.cards .active {
+    box-shadow: 0 0 20px rgb(48, 240, 0);
+    transform: scale(1.05);
+
+  
+}   .total{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+.selection .date #months,#years{
+    border-radius: 10px;
+    border: 2px solid #5400ff;
+    background: transparent;
+    color: #d400ff;
+}
+
+.selection .date #years:hover{
+    border-color: rgb(119, 170, 170);
+}
+.selection .date #months:hover{
+    border-color: rgb(119, 170, 170);
+}
+.cards {
+    display: flex;
+}
+
+.cards > div {
+    margin-right: 5px; 
+}
+.cards img {
+    width:50px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.paypal:hover{
+    box-shadow: 0 0 20px rgb(17, 51, 163);
+    scale: 1.05;
+}
+.master:hover{
+    box-shadow: 0 0 20px rgb(240, 204, 0);
+    scale: 1.05;
+}
+.debito:hover{
+    box-shadow: 0 0 20px rgb(0, 212, 240);
+    scale: 1.05;
+  
+}
+
+form {
+    
+    padding: 1px;
+    margin: 6px auto;
+    width: 100%;
+
+    }
+#titles {
+    text-align: center;
+    margin-top: 10px;
+}
+.input-field:focus{
+    border-color: rgb(152, 161, 20);   
+}
+form .container{
+    height: 302px;
+    border-radius: 30px;
+}

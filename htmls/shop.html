@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ESTILOS DE TABLA -->
+    <link rel="stylesheet" href="../Estilos/style_table.css">
+    <link rel="stylesheet" href="../Estilos/style_shop.css">
+    <link rel="stylesheet" href="../Estilos/style_buy.css">
+    <!-- ICONO -->
+    <link rel="shortcut icon" href="../Imagenes/iconos.ico" type="image/x-icon">
+    <!-- Libreria Sweet alert -->
+    <script src="../Frameworks y biblotecas/sweetalert2.all.js"></script>
+    <!-- Font awesome estilos de textos y iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Framework Jquery  y boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <title>Compras | Mundo nuevo</title>
+
+<style>
+
+/*animacion*/
+
+        canvas {
+          width: 100vw; 
+    height: 100vh;
+    background: black;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0
+        }
+
+
+        footer {
+    flex-direction: row;
+
+}
+
+.container-footer,footer {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.container-footer {
+    flex-direction: column;
+    margin: 20px auto
+}
+
+/*ANIMACION DE JQUERY ZOOM-IN*/
+.zoom-in-element {
+    transform: scale(0.5); 
+    opacity: 0; 
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.zoom-in-element.zoom-in {
+    transform: scale(1); 
+    opacity: 1;
+}
+
+.th-description {
+    width: 453px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.remove-item{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.remove-item i{
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(172, 63, 63);
+}
+.remove-item i:hover{
+    color: rgb(255, 0, 0);
+}
+.ico{
+ color:rgb(86 0 100);
+}
+.cards .active {
+    box-shadow: 0 0 20px rgb(48, 240, 0);
+    transform: scale(1.05);
+}
+div:where(.swal2-container).swal2-center>.swal2-popup{
+    background: transparent;
+    color: rgb(255, 255, 255);
+    backdrop-filter: blur(29px);
+}
+*{
+    z-index: 1;
+}
+</style>
+</head>
+<body id="ini">
+ <!--  NOT DEVELOPER SCRIPT  -->
+ 
+    <script src="../JavaScript/particulas.js"></script>
+
+
+    <canvas id="canvas"></canvas>
+    <script src="../JavaScript/particulasC.js"></script>
+    <nav class="navbar">
+        <ul>
+            <li><a href="../index.html"><i style="font-size: 30px;" class="bi bi-house-fill"></i></i></a></li>
+            <li>
+                <a href="#carrito" class="cart-icon" id="cart-icon">
+                    <i  style="font-size: 29px;" class="bi bi-cart-fill"></i>
+                    <span class="badge" id="cart-count">0</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <section class="features-sectioncarrusel zoom-in-element" >
+        <div class="new-container" id="compras">
+            <p class="title-big title-big-path aos-init aos-animate" data-aos="fade-right" data-aos-duration="1500">
+                ¡Nuestros <span class="title-color">juguetes!</span>
+            </p>
+            <p class="title-small title-small-path aos-init aos-animate" data-aos="fade-left" data-aos-duration="1500" style="text-align: center;">
+                ¡Elige nuestros juguetes!
+            </p>
+            <div class="new-container-carrusel slick-carousel center">
+                <!-- Juguete 1 -->
+                <div class="new-card-primary-carrusel">
+                    <div class="new-card-content-carrusel">
+                        <div class="inside">
+                            <div class="icon">
+                                <i style="font-size: 20px;color: rgb(204, 0, 255);" class="far fa-eye"></i>
+                            </div>
+                            <div class="contents">
+                                <h1>Juguete 1</i></h1>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, fugiat. Eveniet quasi praesentium enim odio! Unde, asperiores! Quibusdam facilis, asperiores expedita eum accusantium reprehenderit, debitis, nostrum officia magnam eaque eos.</p>
+                            </div>
+                        </div>
+                        <div class="title-content-card title-content-card-features">
+                            <h2 class="title-card-big title-card-big-180">Juguete 1</h2>
+                        </div>
+                        <div class="image-carrusel">
+                            <img src="../Imagenes/img_shop/barbie.png" alt="Seguridad" class="card-image">
+                        </div>
+                        <h1  class="precio" style="color: rgb(195, 0, 255);"> $1</h1>
+                        <div style="margin: 25px 0 0 0" class="container-button">
+                            <a class="buy">
+                                Agregar <i style="font-size: 17px;" class="bi bi-cart-plus-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <!-- Juguete 2 -->
+            <div class="new-card-primary-carrusel">
+                <div class="new-card-content-carrusel">
+                    <div class="inside">
+                        <div class="icon">
+                            <i style="font-size: 20px;color: rgb(204, 0, 255);" class="far fa-eye"></i>
+                        </div>
+                        <div class="contents">
+                            <h1>Juguete 2</h1>
+                            <p>Descripción del juguete 2</p>
+                        </div>
+                    </div>
+                    <div class="title-content-card title-content-card-features">
+                        <h2 class="title-card-big title-card-big-180">Juguete 2</h2>
+                    </div>
+                    <div class="image-carrusel">
+                        <img src="../Imagenes/img_shop/barbie.png" alt="Seguridad" class="card-image">
+           
+                    </div>
+                    <h1 class="precio" style="color: rgb(195, 0, 255);"> $2</h1>
+                    <div style="margin: 25px 0 0 0" class="container-button">
+             
+                        <a class="buy">
+                            
+                            Agregar <i style="font-size: 17px;" class="bi bi-cart-plus-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Juguete 3 -->
+            <div class="new-card-primary-carrusel">
+                <div class="new-card-content-carrusel">
+                    <div class="inside">
+                        <div class="icon">
+                            <i style="font-size: 20px;color: rgb(204, 0, 255);" class="far fa-eye"></i>
+                        </div>
+                        <div class="contents">
+                            <h1>Juguete 3</h1>
+                            <p>Descripción del juguete 3</p>
+                        </div>
+                    </div>
+                    <div class="title-content-card title-content-card-features">
+                        <h2 class="title-card-big title-card-big-180">Juguete 3</h2>
+                    </div>
+                    <div class="image-carrusel">
+                        <img src="../Imagenes/img_shop/barbie.png" alt="Seguridad" class="card-image">
+                    </div>
+                    <h1  class="precio" style="color: rgb(195, 0, 255);"> $3</h1>
+                    <div style="margin: 25px 0 0 0" class="container-button">
+                        <a  class="buy">
+                            Agregar <i style="font-size: 17px;" class="bi bi-cart-plus-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+    <!-- Juguete 4 -->
+    <div class="new-card-primary-carrusel">
+        <div class="new-card-content-carrusel">
+            <div class="inside">
+                <div class="icon">
+                    <i style="font-size: 20px;color: rgb(204, 0, 255);" class="far fa-eye"></i>
+                </div>
+                <div class="contents">
+                    <h1>Juguete 4</h1>
+                    <p>Descripción del juguete 4</p>
+                </div>
+            </div>
+            <div class="title-content-card title-content-card-features">
+                <h2 class="title-card-big title-card-big-180">Juguete 4</h2>
+            </div>
+            <div class="image-carrusel">
+                <img src="../Imagenes/img_shop/barbie.png" alt="Seguridad" class="card-image">
+            </div>
+            <h1 class="precio" style="color: rgb(195, 0, 255);"> $4</h1>
+            <div style="margin: 25px 0 0 0" class="container-button">
+                <a  class="buy">
+                    Agregar <i style="font-size: 17px;" class="bi bi-cart-plus-fill"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Juguete 5 -->
+    <div class="new-card-primary-carrusel">
+        <div class="new-card-content-carrusel">
+            <div class="inside">
+                <div class="icon">
+                    <i style="font-size: 20px;color: rgb(204, 0, 255);" class="far fa-eye"></i>
+                </div>
+                <div class="contents">
+                    <h1>Juguete 5</h1>
+                    <p>Descripción del juguete 5</p>
+                </div>
+            </div>
+            <div class="title-content-card title-content-card-features">
+                <h2 class="title-card-big title-card-big-180">Juguete 5</h2>
+            </div>
+            <div class="image-carrusel">
+                <img src="../Imagenes/img_shop/barbie.png" alt="Seguridad" class="card-image">
+            </div>
+            <h1  class="precio" style="color: rgb(195, 0, 255);"> $5</h1>
+            <div style="margin: 25px 0 0 0" class="container-button">
+                <a class="buy">
+                    Agregar <i style="font-size: 17px;" class="bi bi-cart-plus-fill"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Juguete 6 -->
+    <div class="new-card-primary-carrusel">
+        <div class="new-card-content-carrusel">
+            <div class="inside">
+                <div class="icon">
+                    <i style="font-size: 20px;color: rgb(204, 0, 255);" class="far fa-eye"></i>
+                </div>
+                <div class="contents">
+                    <h1>Juguete 6</h1>
+                    <p>Descripción del juguete 6</p>
+                </div>
+            </div>
+            <div class="title-content-card title-content-card-features">
+                <h2 class="title-card-big title-card-big-180">Juguete 6</h2>
+            </div>
+            <div class="image-carrusel">
+                <img src="../Imagenes/img_shop/barbie.png" alt="Seguridad" class="card-image">
+            </div>
+            <h1 class="precio" style="color: rgb(195, 0, 255);"> $6</h1>
+            <div style="margin: 25px 0 0 0" class="container-button">
+                <a class="buy">
+                    Agregar <i style="font-size: 17px;" class="bi bi-cart-plus-fill"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Juguete 7 -->
+    <div class="new-card-primary-carrusel">
+        <div class="new-card-content-carrusel">
+            <div class="inside">
+                <div class="icon">
+                    <i style="font-size: 20px;color: rgb(204, 0, 255);" class="far fa-eye"></i>
+                </div>
+                <div class="contents">
+                    <h1>Juguete 7</h1>
+                    <p>Descripción del juguete 7</p>
+                </div>
+            </div>
+            <div class="title-content-card title-content-card-features">
+                <h2 class="title-card-big title-card-big-180">Juguete 7</h2>
+            </div>
+            <div class="image-carrusel">
+                <img src="../Imagenes/img_shop/barbie.png" alt="Seguridad" class="card-image">
+            </div>
+            <h1 class="precio" style="color: rgb(195, 0, 255);"> $7</h1>
+            <div style="margin: 25px 0 0 0" class="container-button">
+                <a  class="buy">
+                    Agregar <i style="font-size: 17px;" class="bi bi-cart-plus-fill"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Juguete 8 -->
+    <div class="new-card-primary-carrusel">
+        <div class="new-card-content-carrusel">
+            <div class="inside">
+                <div class="icon">
+                    <i style="font-size: 20px;color: rgb(204, 0, 255);" class="far fa-eye"></i>
+                </div>
+                <div class="contents">
+                    <h1>Juguete 8</h1>
+                    <p>Descripción del juguete 8</p>
+                </div>
+            </div>
+            <div class="title-content-card title-content-card-features">
+                <h2 class="title-card-big title-card-big-180">Juguete 8</h2>
+            </div>
+            <div class="image-carrusel">
+                <img src="../Imagenes/img_shop/tanos.jpeg" alt="Seguridad" class="card-image">
+            </div>
+            <h1 class="precio" style="color: rgb(195, 0, 255);"> $8</h1>
+            <div style="margin: 25px 0 0 0" class="container-button">
+                <a class="buy">
+                    Agregar  <i style="font-size: 17px;" class="bi bi-cart-plus-fill"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+            </div>
+            <!-- Footer  -->
+<footer style="margin: 0px auto">
+    <div class="container-footer">
+    <img src="" alt="">
+    <p class="title-small" style="text-align: center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    © 2024 Mundo Nuevo Todos los derechos reservados.
+    </font></font></p>
+    <p class="title-small" style="font-weight: 600; font-size:12px"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    -----------------------
+    </font></font></p>
+    <p class="title-small" style="font-size: 12px"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Más acerca de nosotros.
+     </font></font><a class="title-small" style="font-size: 12px" href="../index.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mundo Nuevo</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+    ·
+     </font></font><a class="title-small" style="font-size: 12px" href="#ini"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Juguetes</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+    ·
+     </font></font><a class="title-small" style="font-size: 12px" href="https://discord.gg/rYjRE7Ju" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contacto</font></font></a>
+    </p>
+    <p class="title-small" style="font-size: 12px">
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;color: rgb(247, 0, 255);">
+                Desarrollado por
+                <a href="https://discord.com/invite/thCmbg8NH2" style="text-decoration: none;" target="_blank">
+                    <span style="color: rgb(0, 247, 255);">#Elvisdrom ♥</span>
+                </a>
+            </font>
+        </font>
+    </p>
+    
+    </div>
+
+    </footer>
+        </div>
+
+   
+
+
+    </section>
+
+
+ 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="../Frameworks y biblotecas/sweetalert2.all.js"></script>
+
+<script>
+    const addToCartButtons = document.querySelectorAll('.buy');
+    const cartCountElement = document.getElementById('cart-count');
+    let cartCount = 0;
+    let cart = [];
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const card = button.closest('.new-card-primary-carrusel');
+            const title = card.querySelector('.title-card-big').textContent;
+            const description = card.querySelector('.contents p').textContent;
+            const imageSrc = card.querySelector('.card-image').src;
+            const price = card.querySelector('.precio').textContent;
+
+            cart.push({ title, description, imageSrc, price, quantity: 1 });
+
+            cartCount++;
+            cartCountElement.textContent = cartCount;
+        });
+    });
+/*VALIDACION SI EL CARRO ESTA VACIO*/
+    const cartIcon = document.getElementById('cart-icon');
+    cartIcon.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (cartCount === 0) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'bottom-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+            Toast.fire({
+                icon: "warning",
+                title: "<span style='color: #00e1ff; font-size: 16px;'>❕Agrega juguetes al carrito</span>❕",
+                background: "#391c49",
+            });
+        } else {
+            renderCart();
+        }
+    });
+/* TABLA DE JUGUETES */
+    function renderCart() {
+        let cartTableHTML = '';
+
+        cart.forEach((item, index) => {
+            cartTableHTML += `
+                <tr>
+                    <td>
+                        <div class="juguete-cell">
+                            <img src="${item.imageSrc}" alt="${item.title}">
+                            <p style="font-weight: 600;">${item.title}</p>
+                        </div>
+                    </td>
+                    <td>${item.description}</td>
+                    <td>${item.quantity}</td>
+                    <td><strong>${item.price}</strong></td>
+                    <td>
+                        <button class="remove-item" data-index="${index}">
+                            <i class="bi bi-trash-fill"></i>
+                        </button>
+                    </td>
+                </tr>
+            `;
+        });
+
+        cartTableHTML += `
+            <tr class="total-row">
+                <td class="text-center" colspan="3">Total</td>
+                <td class="text-center"><strong>$${cart.reduce((acc, item) => acc + parseFloat(item.price.replace('$', '')) * item.quantity, 0).toFixed(2)}</strong></td>
+                <td></td>
+            </tr>
+        `;
+
+        Swal.fire({
+            title: "<span style='color: lime;'>Carrito de Compras</span>",
+            background: 'transparent',
+            customClass: { 
+                popup: 'custom-swal',
+            },
+            width: '80vw', 
+            heightAuto: true,
+            html: `
+                <main class="table" id="customers_table">
+                    <section class="table__body">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><i class="bi bi-joystick ico"></i> Juguete</th>
+                                    <th class="th-description"><i class="bi bi-file-earmark-spreadsheet ico"></i> Descripcion</th>
+                                    <th><i class="bi bi-box-seam ico"></i> Cantidad</th>
+                                    <th><i class="bi bi-coin ico"></i> Precio</th>
+                                    <th><i class="bi bi-body-text ico"></i> Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${cartTableHTML}
+                            </tbody>
+                        </table>
+                    </section>
+                </main>
+            `,
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: 'Comprar',
+            confirmButtonAriaLabel: "Comprar",
+            cancelButtonText: 'Cancelar',
+            cancelButtonAriaLabel: "Cancelar",
+            didOpen: () => {
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const index = event.target.closest('button').dataset.index;
+                        cart.splice(index, 1);
+                        cartCount--;
+                        cartCountElement.textContent = cartCount;
+                        Swal.close();
+                        renderCart();
+                    });
+                });
+            },
+            /*SECCION DE PEDIR DATOS PARA EL PEDIDO*/
+            preConfirm: () => {
+                Swal.fire({
+                    title: "Ingrese sus datos",
+                    html: `
+                        <input id="swal-input1" class="swal2-input" placeholder="Nombre completo">
+                        <input id="swal-input2" class="swal2-input" placeholder="Dirección">
+                        <input id="swal-input3" class="swal2-input" placeholder="País">
+                        <input id="swal-input4" class="swal2-input" placeholder="Correo electrónico">
+                    `,
+                    focusConfirm: false,
+                    showCancelButton: true,
+                    confirmButtonText: "Pagar",
+                    showLoaderOnConfirm: true,
+                    preConfirm: () => {
+                        const nombreCompleto = document.getElementById('swal-input1').value;
+                        const direccion = document.getElementById('swal-input2').value;
+                        const pais = document.getElementById('swal-input3').value;
+                        const correoElectronico = document.getElementById('swal-input4').value;
+
+                        if (!nombreCompleto || !direccion || !pais || !correoElectronico) {
+                            Swal.showValidationMessage('Por favor complete todos los campos');
+                            return;
+                        }
+
+                        return {
+                            nombreCompleto: nombreCompleto,
+                            direccion: direccion,
+                            pais: pais,
+                            correoElectronico: correoElectronico
+                        };
+                    },
+                    allowOutsideClick: () => !Swal.isLoading()
+                    /*CONFIRMACION DE PAGO*/
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: 'Datos ingresados',
+                            html: `
+                                <p><strong><span style="color:#c4c6c7; ">Nombre completo:</span></strong> <span style="color:#ff00dd ; ">${result.value.nombreCompleto}</span></p>
+                                <p><strong><span style="color:#c4c6c7; ">Direccion:</span></strong> <span style="color:#ff00dd    ; ">${result.value.direccion}</span></p>
+                                <p><strong><span style="color:#c4c6c7; ">Pais:</span></strong> <span style="color:#ff00dd    ; ">${result.value.pais}</span></p>
+                                <p><strong><span style="color:#c4c6c7; ">Correo electronico:</span></strong> <span style="color:#ff00dd    ; ">${result.value.correoElectronico}</span></p>
+                            `,
+                            confirmButtonText: 'Continuar',
+                            confirmButtonAriaLabel: "Continuar",
+                            cancelButtonText: 'Cancelar',
+                            cancelButtonAriaLabel: "Cancelar",
+                            preConfirm: () => {
+                                Swal.fire({
+                                    background: 'transparent',
+                                    customClass: { 
+                                        popup: 'custom-swal',
+                                    },
+                                    height: '40vw',
+                                    html: `
+                                    <form action="">
+                                        <div class="container">
+                                            <h3 id="titless">Confirmar tu pago</h3>
+                                            <div class="first-row">
+                                                <div class="owner">
+                                                    <h5>Propietario</h5>
+                                                    <div class="input-field">
+                                                        <input id="user" type="text" autocomplete="off" oninput="allowOnlyLetters(this)" required>
+                                                    </div>
+                                                </div>
+                                                <div class="cvv">
+                                                    <h5>CVV</h5>
+                                                    <div class="input-field">
+                                                        <input id="cvvv" type="password" maxlength="3" autocomplete="off" oninput="allowOnlyNumbers(this)" required>
+                                                    </div>
+                                                </div>
+                                                <div class="total">
+                                                    <h5>Total a pagar</h5>
+                                                    <span style="color: red;" class="totalpagar"><b>$${cart.reduce((acc, item) => acc + parseFloat(item.price.replace('$', '')) * item.quantity, 0).toFixed(2)}</b></span>
+                                                </div>
+                                            </div>
+                                            <div class="second-row">
+                                                <div class="card-number">
+                                                    <h5>Número de tarjeta</h5>
+                                                    <div class="input-field">
+                                                        <input id="num" type="text" maxlength="19" autocomplete="off" oninput="formatTarjeta(this)" required placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="third-row">
+                                                <h5>Fecha de expiracion</h5>
+                                                <div class="selection">
+                                                    <div class="date">
+                                                        <select name="months" id="months" required>
+                                                            <option value="Jan">Ene</option>
+                                                            <option value="Feb">Feb</option>
+                                                            <option value="Mar">Mar</option>
+                                                            <option value="Apr">Abr</option>
+                                                            <option value="May">May</option>
+                                                            <option value="Jun">Jun</option>
+                                                            <option value="Jul">Jul</option>
+                                                            <option value="Aug">Ago</option>
+                                                            <option value="Sep">Sep</option>
+                                                            <option value="Oct">Oct</option>
+                                                            <option value="Nov">Nov</option>
+                                                            <option value="Dec">Dic</option>
+                                                        </select>
+                                                        <select name="years" id="years">
+                                                            <option value="2020">2020</option>
+                                                            <option value="2019">2021</option>
+                                                            <option value="2018">2022</option>
+                                                            <option value="2017">2023</option>
+                                                            <option value="2016">2024</option>
+                                                            <option value="2015">2025</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="cards">
+                                                        <div class="master" onclick="seleccionarTarjeta(this)">
+                                                            <img src="../Imagenes/img_shop/img_pagos/mc.png" alt="MasterCard">
+                                                        </div>
+                                                        <div class="debito" onclick="seleccionarTarjeta(this)">
+                                                            <img src="../Imagenes/img_shop/img_pagos/vi.png" alt="Tarjeta de débito">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    `,
+                                    showCloseButton: true,
+                                    showCancelButton: true,
+                                    focusConfirm: false,
+                                    confirmButtonText: `Pagar`,
+                                    confirmButtonAriaLabel: "Pagar",
+                                    cancelButtonText: `Cancelar`,
+                                    cancelButtonAriaLabel: "Cancelar",
+                                    preConfirm: () => {
+                                        const Toast = Swal.mixin({
+                                            toast: true,
+                                            position: 'bottom-end',
+                                            showConfirmButton: false,
+                                            timer: 3000
+                                        });
+                                        Toast.fire({
+                                            icon: "success",
+                                            type: 'success',
+                                            title: "✔️<span style='color: lime; font-size: 16px;'>Tu pedido esta en proceso...</span>✔️",
+                                            background: "#391c49",
+                                        });
+
+                                        cart = [];
+                                        cartCount = 0;
+                                        cartCountElement.textContent = cartCount;
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    }
+    /*ANIMACION DE JQUERY ZOOM-IN*/
+    $(document).ready(function() {
+        setTimeout(function() {
+            $('.zoom-in-element').addClass('zoom-in');
+        }, 200);
+    });
+    function seleccionarTarjeta(card) {
+        var cards = document.querySelectorAll('.cards > div');
+        cards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+    }
+
+    function formatTarjeta(input) {
+        let tarjetaNumber = input.value.replace(/\D/g, '');
+        tarjetaNumber = tarjetaNumber.replace(/(\d{4})(?=\d)/g, '$1 ');
+        input.value = tarjetaNumber;
+    }
+
+    function allowOnlyLetters(input) {
+        input.value = input.value.replace(/[^A-Za-z]/g, '');
+    }
+
+    function allowOnlyNumbers(input) {
+        input.value = input.value.replace(/\D/g, '');
+    }
+</script>
+</body>
+</html>

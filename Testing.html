@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        :root {
+    --button-gradient-color: linear-gradient(90deg,#b0fffb,#087083);
+    --button-gradient-color-hover: linear-gradient(90deg,#2455c0,#03eeff);
+}
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            background-color: #000;
+            position: relative;
+        }
+        canvas {
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            position: fixed;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+        }
+        .submenu {
+            display: none;
+            background: var(--button-gradient-color);
+            border-radius: 5px;
+            padding: 0px;
+            position: absolute;
+            margin-top: 10px;
+            z-index: 2;
+        }
+        .submenu a {
+            color: white;
+            padding: 5px;
+            text-decoration: none;
+            display: block;
+        }
+        .submenu a:hover {
+            background:var(--button-gradient-color-hover);
+            border-radius: 5px;
+           
+        }
+        .menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        * {
+            z-index: 1;
+        }
+        #anim ,#submenuBtn, #colorPicker {
+            margin-top: 5px;
+            border: none;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        #anim:hover ,#submenuBtn:hover, #colorPicker:hover{
+            background: var(--button-gradient-color-hover);
+        }
+        #submenuBtn{
+            height: 27px;
+            background: var(--button-gradient-color);
+            border-radius: 7px;
+            color: #ffffff;
+        }
+        #anim{
+            background: var(--button-gradient-color);
+            border-radius: 7px;
+            color: #ffffff;
+          
+        }
+        #colorPicker{
+            background: var(--button-gradient-color);
+            border-radius: 7px;
+          
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <button id="anim">Click me</button>
+    <div class="menu">
+        <button id="submenuBtn">Fondo</button>
+        <div class="submenu" id="submenu">
+            <a href="#" id="circles">Círculos</a>
+            <a href="#" id="triangles">Triángulos</a>
+        </div>
+    </div>
+    <input type="color" id="colorPicker" value="#00DBEB">
+    
+    <script src="./JavaScript/partic.js"></script>
+</body>
+</html>
