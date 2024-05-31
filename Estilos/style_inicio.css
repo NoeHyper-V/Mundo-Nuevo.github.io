@@ -1894,20 +1894,15 @@ header {
 
 @media screen and (max-width: 425px) {
     .container {
-        padding:0 20px
+        padding:0 20px;
+        margin-left:100px;
     }
 
     .contenedor-usuarios {
         width: 100px;
         margin-bottom: 20px;
     }
-    .container-navbar{
-        position: fixed;
-        align-items: center;
-        width: 82%;
-        margin-top: 20px;
-        margin-left: 82px;
-    }
+
     
 }
 
